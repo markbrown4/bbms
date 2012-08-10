@@ -1,0 +1,12 @@
+
+development:
+  adapter: postgresql
+  database: bb_message_development
+
+test:
+  adapter: postgresql
+  database: bb_message_development
+
+production:
+  adapter: postgresql
+  database: bb_message
