@@ -9,7 +9,9 @@
 <body>
 <div id="header">
   <div class="inner">
-    <%= gravatar_image_tag(current_user.email ) %> Oh hai
+    <% if user_signed_in? %>
+      <%= image_tag gravatar_url(current_user.email ) %> Oh hai
+    <% end %>
   </div>
 </div>
 <div class="inner">

@@ -1,1 +1,44 @@
+
 <h1>Messages</h1>
+<%= link_to "New Message", "#", class: 'btn', id: 'new-message' %>
+<ul id="threads">
+  <li class="active">
+    <a href="/messages/1">
+      <img src="#">
+      <h3>Peter</h3>
+      <time datetime="2012-08-08">2 days ago</time>
+    </a>
+  </li>
+  <li>
+    <a href="/messages/2">
+      <img src="#">
+      <h3>James</h3>
+      <time datetime="2012-08-08">4 days ago</time>
+    </a>
+  </li>
+  <li>
+    <a href="/messages/3">
+      <img src="#">
+      <h3>Paul</h3>
+      <time datetime="2012-08-08">2 weeks ago</time>
+    </a>
+  </li>
+</ul>
+<div id="thread">
+  <h2>Subject</h2>
+  <ul id="messages">
+    <li>
+      <time datetime="2012-08-08">2 days ago</time>
+      <a title="Support" href="/users/1">
+        <img src="#">
+        <span>Support</span>
+      </a>
+      <p>Hi pete.</p>
+    </li>
+  </ul>
+  <div id="reply">
+    <img src="#">
+    <textarea></textarea>
+    <input type="submit" class="btn" value="Reply">
+  </div>
+</div>

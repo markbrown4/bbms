@@ -1,5 +1,6 @@
 #= require vendor/zepto
 #= require vendor/underscore
+#= require vendor/json2
 #= require vendor/backbone
 #= require_self
 #= require_tree ./templates
