@@ -11,3 +11,36 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  margin: 0;
+  font: 13px/1.2 Helvetica;
+  background: #ECEDED;
+}
+h1 {
+  color: rgba(black, .8);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 20px 0;
+  text-shadow: 0 1px white;
+}
+#header {
+  padding: 9px 15px;
+  overflow: hidden;
+  background: #212B34;
+  text-align: right;
+  line-height: 27px;
+  font-weight: bold;
+  color: #fff;
+  img {
+    float: right;
+    height: 27px;
+    width: auto;
+    margin-left: 10px;
+  }
+}
+.inner {
+  width: 960px;
+  margin: 0 auto;
+}

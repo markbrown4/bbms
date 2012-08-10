@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>bb message</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta charset="utf-8">
+  <title>Beebs</title>
+  <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="header">
+  <div class="inner">
+    <%= gravatar_image_tag(current_user.email ) %> Oh hai
+  </div>
+</div>
+<div class="inner">
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
 <%= javascript_include_tag "application" %>
 </body>
 </html>
