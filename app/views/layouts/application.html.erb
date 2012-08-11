@@ -9,8 +9,10 @@
 <body>
 <div id="header">
   <div class="inner">
+    <h1>Beebs</h1>
     <% if user_signed_in? %>
-      <%= image_tag gravatar_url(current_user.email ) %> Oh hai
+      <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+      <%= image_tag image_path(current_user.avatar ) %> Oh hai <%= current_user.name %>
     <% end %>
   </div>
 </div>
