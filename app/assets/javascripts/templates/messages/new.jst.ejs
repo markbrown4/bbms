@@ -1,7 +1,15 @@
-<h1>New Message</h1>
-<label>To</label>
-<ul id="subscribers"></ul>
-<label for="subject">Subject</label>
-<input type="text" id="subject">
-<label for="body">Body</label>
-<textarea id="body"></textarea>
+<ul class="actions">
+  <li><a href="#" class="cancel btn">Cancel</a></li>
+</ul>
+<h2>New Thread</h2>
+<div id="new-thread">
+  <label>To</label>
+  <ul id="subscribers">
+    <% _.each(users, function(u) { %>
+    <li id="user-<%= u.id %>"<%= u.subscribed ? ' class="active"' : '' %>><img src="<%= u.avatar %>"></li>
+    <% }) %>
+  </ul>
+  <input type="text" id="subject" placeholder="Subject">
+  <textarea id="body" placeholder="Message"></textarea>
+  <a class="send btn">Send</a>
+</div>

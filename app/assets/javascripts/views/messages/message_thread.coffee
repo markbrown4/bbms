@@ -1,8 +1,8 @@
-class Beebs.Views.Messages.MessageThread extends Backbone.View
+class BBMS.Views.Messages.MessageThread extends Backbone.View
   tagName: 'li'
   template: JST["templates/messages/message_thread"]
 
-  initialize: =>
+  initialize: ->
     @render()
 
   render: =>

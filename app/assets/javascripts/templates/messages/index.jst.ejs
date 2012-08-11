@@ -1,6 +1,5 @@
 <h1>Messages</h1>
 <a id="new-message" class="btn">New Message</a>
-<div id="new-view"></div>
 <ul id="threads"></ul>
 <div id="thread">
   <ul class="actions">
@@ -12,7 +11,7 @@
   <ul id="messages"></ul>
   <div id="reply">
     <img src="<%= avatar %>">
-    <textarea placeholder="Reply to this discussion"></textarea>
-    <a class="btn">Reply</a>
+    <textarea id="message_body" placeholder="Reply to this discussion"></textarea>
+    <a id="reply-button" class="btn">Reply</a>
   </div>
 </div>

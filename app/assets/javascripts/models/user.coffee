@@ -1,5 +1,5 @@
-class Beebs.Models.User extends Backbone.Model
+class BBMS.Models.User extends Backbone.Model
   paramRoot: 'user'
     
-class Beebs.Collections.Users extends Backbone.Collection
+class BBMS.Collections.Users extends Backbone.Collection
   url: -> "/users"

@@ -1,26 +1,24 @@
-class Beebs.Routers.MessagesRouter extends Backbone.Router
+class BBMS.Routers.MessagesRouter extends Backbone.Router
 
   routes:
     "messages"      : "index"
-    "messages/:id"  : "show"
     "messages/new"  : "new"
+    "messages/:id"  : "show"
 
-  index: (callback)->
-    @threads = new Beebs.Collections.MessageThreads()
-    @indexView = new Beebs.Views.Messages.Index(collection: @threads, el: $('#content'))
+  index: (callback)=>
+    @threads = new BBMS.Collections.MessageThreads()
+    @indexView = new BBMS.Views.Messages.Index(collection: @threads, el: $('#content'))
     @threads.fetch
-      success: callback || ->
+      success: callback
 
-  show: (id) ->
+  show: (id) =>
     if @threads
-      @showView = new Beebs.Views.Messages.MessageThread model: @threads.get(id)
+      @showView = new BBMS.Views.Messages.MessageThread model: @threads.get(id)
     else
-      @index -> @show(id)
-    end
+      @index(@show(id))
 
-  new: ->
+  new: =>
     if @threads
-      @new_view = new Beebs.Views.Messages.New model: @threads.get(id)
+      @new_view = new BBMS.Views.Messages.New(el: $('#thread'))
     else
-      @index -> @show(id)
-    end
+      @index(@new)

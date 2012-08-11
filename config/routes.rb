@@ -6,6 +6,7 @@ BackboneStart::Application.routes.draw do
     resources :messages, :except => [:edit, :new]
     resources :subscriptions, :except => [:edit, :new]
   end
+  get "messages/new" => "messages#index"
   get "messages" => "messages#index"
   root :to => "messages#index"
 end

@@ -1,12 +1,24 @@
-class Beebs.Views.Messages.New extends Backbone.View
+class BBMS.Views.Messages.New extends Backbone.View
   template: JST["templates/messages/new"]
+  events:
+    'click .send'   : 'send'
+    'click .cancel' : 'cancel'
 
-  initialize: =>
+  initialize: ->
     @render()
 
   render: =>
-    $(@el).html @template({
-      subject: 'YO'
-    })
+    $(@el).html @template(users: [])
     
     @
+
+  send: =>
+    
+    Backbone.history.navigate 'messages', true
+
+    false
+
+  cancel: =>
+    Backbone.history.navigate 'messages', true
+    
+    false

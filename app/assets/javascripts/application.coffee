@@ -8,7 +8,7 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Beebs =
+window.BBMS =
   Models: {}
   Collections: {}
   Routers: {}
@@ -17,8 +17,8 @@ window.Beebs =
   }
   
   init: ->
-    new Beebs.Routers.MessagesRouter
+    new BBMS.Routers.MessagesRouter
     Backbone.history.start pushState: true
 
 $ ->
-  Beebs.init()
+  BBMS.init()

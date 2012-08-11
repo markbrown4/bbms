@@ -8,13 +8,13 @@ Install Pow
 
 Get the app running
 
-    git clone git@github.com:markbrown4/beebs.git
-    cd beebs
+    git clone git@github.com:markbrown4/bbms.git
+    cd bbms
     rake db:setup
     cd ~/.pow
     ln -s <path-to-app>
 
-Log into http://beebs.dev/ as Azula with azula@gmail.com and "password"
+Log into http://bbms.dev/ as Azula with azula@gmail.com and "password"
 Other users are Aang, Mako & Toph @gmail.com
 
 ## API

@@ -1,5 +1,5 @@
-class Beebs.Models.Subscription extends Backbone.Model
+class BBMS.Models.Subscription extends Backbone.Model
   paramRoot: 'subscription'
     
-class Beebs.Collections.Subscriptions extends Backbone.Collection
+class BBMS.Collections.Subscriptions extends Backbone.Collection
   url: -> "/message_threads/#{@message_thread.id}/subscriptions"

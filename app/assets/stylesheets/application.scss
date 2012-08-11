@@ -1,7 +1,7 @@
 @import "compass/css3";
 
-::-webkit-input-placeholder { color: #aaa }
-:-moz-placeholder { color: #aaa }
+::-webkit-input-placeholder { color: #aaa !important }
+:-moz-placeholder { color: #aaa !important }
 
 body {
   margin: 0;
@@ -28,6 +28,7 @@ h1 {
   padding-bottom: 40px;
   &:after {
     content: '';
+    display: block;
     height: 0;
     overflow: hidden;
     clear: both;
@@ -189,7 +190,7 @@ textarea {
     margin: 0 0 0 -60px;
     width: 45px;
   }
-  #reply {
+  #reply, #new-thread {
     padding: 18px 48px 18px 78px;
     overflow: hidden;
     textarea {
@@ -201,6 +202,7 @@ textarea {
       margin-right: -32px;
     }
   }
+  #new-thread { padding-left: 18px }
 }
 #messages {
   list-style: none;
