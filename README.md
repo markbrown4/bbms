@@ -3,9 +3,11 @@ We're going to build a messaging system where you can view a list of threads and
 
 ## Install
 Install Pow
+
     curl get.pow.cx | sh
 
 Get the app running
+
     git clone git@github.com:markbrown4/beebs.git
     cd beebs
     rake db:setup
