@@ -3,7 +3,7 @@ class AddEverything < ActiveRecord::Migration
     add_column :users, :avatar, :string, :default => 'avatar.png'
     add_column :users, :name, :string
     
-    create_table :threads do |t|
+    create_table :message_threads do |t|
       t.string :subject
       
       t.timestamps
@@ -11,14 +11,14 @@ class AddEverything < ActiveRecord::Migration
     
     create_table :messages do |t|
       t.text :body
-      t.references :thread
+      t.references :message_thread
       t.references :user
       
       t.timestamps
     end
     
     create_table :subscription do |t|
-      t.references :thread
+      t.references :message_thread
       t.references :user
     end
     

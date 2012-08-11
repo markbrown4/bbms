@@ -12,10 +12,13 @@ window.Beebs =
   Models: {}
   Collections: {}
   Routers: {}
-  Views: {}
+  Views: {
+    Messages: {}
+  }
   
   init: ->
-    # Backbone.history.start(pushState: true)
+    new Beebs.Routers.MessagesRouter
+    Backbone.history.start pushState: true
 
 $ ->
-  BBM.init()
+  Beebs.init()
