@@ -1,0 +1,21 @@
+<ul class="actions">
+  <li><a class="reply btn">Reply</a></li>
+  <li><a class="unsubscribe btn">Unsubscribe</a></li>
+</ul>
+<h2><%= subject %></h2>
+<label>Participants</label>
+<ul id="participants">
+<% _.each(subscribers, function(subscriber) { %>
+  <%= JST['templates/users/item'](subscriber) %>
+<% }) %>
+</ul>
+<ul id="messages">
+<% _.each(messages, function(message) { %>
+  <%= JST['templates/messages/item'](message) %>
+<% }) %>
+</ul>
+<div id="reply">
+  <img src="<%= CurrentUser.avatar %>">
+  <textarea id="message_body" placeholder="Reply to this discussion"></textarea>
+  <a id="reply-button" class="btn">Reply</a>
+</div>

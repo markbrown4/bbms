@@ -16,6 +16,7 @@ time {
   color: #6F6F6F;
   font-size: 12px;
 }
+label { color: #555 }
 h1 {
   color: rgba(#000, .8);
   font-size: 20px;
@@ -44,6 +45,7 @@ input[type=text], textarea, .input {
   font: 13px/18px Helvetica;
   color: #353535;
   margin-bottom: 1em;
+  width: 300px;
   &:focus {
     background: #fff;
     box-shadow: 0 0 4px rgba(20, 167, 222, 0.7);
@@ -97,7 +99,7 @@ textarea {
   width: 960px;
   margin: 0 auto;
 }
-#new-message {
+.new {
   float: right;
   margin-top: -48px;
 }
@@ -161,17 +163,18 @@ textarea {
 #thread {
   background: white;
   float: right;
-  width: 620px;
+  width: 550px;
+  padding: 0 48px 18px 18px;
   box-shadow: 0 1px 2px rgba(#000, .1);
   h2 {
-    margin: 0;
+    margin: 0 -48px 18px -18px;
     padding: 18px;
     border-bottom: 1px solid #E7E8E8;
   }
   p { margin: 10px 0 0 }
   .actions {
     float: right;
-    margin: 18px 18px 0 0;
+    margin: 18px -30px 0 0;
     list-style: none;
     li {
       float: left;
@@ -190,24 +193,40 @@ textarea {
     margin: 0 0 0 -60px;
     width: 45px;
   }
-  #reply, #new-thread {
-    padding: 18px 48px 18px 78px;
-    overflow: hidden;
-    textarea {
-      width: 100%;
-      margin-bottom: 18px;
-    }
-    .btn {
-      float: right;
-      margin-right: -32px;
-    }
+  textarea {
+    width: 100%;
+    margin-bottom: 18px;
   }
-  #new-thread { padding-left: 18px }
+  .send, #reply-button {
+    float: right;
+    margin-right: -32px;
+  }
+  #reply { padding-left: 60px }
+}
+#subscribers, #participants {
+  list-style: none;
+  margin: 0 0 0 -10px;
+  padding: 5px 0 1em;
+  overflow: hidden;
+  li { float: left }
+  a {
+    float: left;
+    margin-left: 10px;
+  }
+  img { margin: 0 }
+}
+#subscribers {
+  a {
+    opacity: .3;
+    @include transition(opacity .2s linear)
+  }
+  li.active a { opacity: 1 }
 }
 #messages {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 -48px 1em -18px;
+  border-top: 1px solid #E7E8E8;
   li {
     padding: 18px 18px 18px 78px;
     border-bottom: 1px solid #E7E8E8;

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20120811051608) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "subscription", :force => true do |t|
+  create_table "subscriptions", :force => true do |t|
     t.integer "message_thread_id"
     t.integer "user_id"
   end

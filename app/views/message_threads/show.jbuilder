@@ -1,0 +1,1 @@
+json.partial! "message_thread", message_thread: message_thread

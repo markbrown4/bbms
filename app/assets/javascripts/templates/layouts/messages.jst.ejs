@@ -1,0 +1,10 @@
+<h1>Messages</h1>
+<a href="/messages/new" class="new btn" data-route>New Thread</a>
+<ul id="threads">
+<% _.each(threads, function(thread) { %>
+  <%= JST['templates/threads/item'](thread) %>
+<% }) %>
+</ul>
+<div id="thread">
+
+</div>

@@ -3,5 +3,5 @@ class SubscriptionsController < ApplicationController
   
   expose(:message_thread)
   expose(:subscriptions) { message_thread.subscriptions }
-  expose(:subscription)
+  expose(:subscription) { subscriptions.find_by_user_id params[:id] }
 end

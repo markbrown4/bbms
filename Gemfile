@@ -7,7 +7,6 @@ gem 'jbuilder'
 gem 'decent_exposure'
 
 group :assets do
-  gem 'backbone-rails'
   gem 'ejs'
   gem 'compass-rails'
   gem 'sass-rails',   '~> 3.2.3'

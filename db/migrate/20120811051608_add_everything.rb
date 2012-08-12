@@ -17,7 +17,7 @@ class AddEverything < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :subscription do |t|
+    create_table :subscriptions do |t|
       t.references :message_thread
       t.references :user
     end

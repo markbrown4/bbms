@@ -1,0 +1,9 @@
+<h2>New Thread</h2>
+<ul id="subscribers">
+<% _.each(users, function(user) { %>
+  <%= JST['templates/users/item'](user) %>
+<% }) %>
+</ul>
+<input type="text" id="subject" placeholder="Subject">
+<textarea id="body" placeholder="Message"></textarea>
+<a class="send btn">Send</a>

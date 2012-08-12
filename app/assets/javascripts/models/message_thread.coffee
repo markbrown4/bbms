@@ -1,5 +1,18 @@
 class BBMS.Models.MessageThread extends Backbone.Model
-  paramRoot: 'message_thread'
+  urlRoot: '/message_threads'
+  
+  initialize: =>
+    @subscribers = []
     
+  toggleSubscriber: (id)=>
+    id = Number(id)
+    index = @subscribers.indexOf(id)
+    if index > 0
+      @subscribers.slice index
+    else
+      @subscribers.push id
+
+
 class BBMS.Collections.MessageThreads extends Backbone.Collection
-  url: -> "/message_threads"
+  model: BBMS.Models.MessageThread
+  url: '/message_threads'

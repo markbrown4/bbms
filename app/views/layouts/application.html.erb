@@ -22,5 +22,13 @@
   </div>
 </div>
 <%= javascript_include_tag "application" %>
+<% if user_signed_in? %>
+<script>
+CurrentUser = {
+  id: <%= current_user.id %>,
+  avatar: "<%= image_path current_user.avatar %>"
+}
+</script>
+<% end %>
 </body>
 </html>
