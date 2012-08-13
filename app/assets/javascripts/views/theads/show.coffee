@@ -1,28 +1,38 @@
 class BBMS.Views.Threads.Show extends Backbone.View
   template: JST["templates/threads/show"]
   events:
-    'click .reply': 'focusReply'
-    'click #reply-button': 'reply'
+    'click .focus-reply': 'focusReply'
+    'click .reply': 'reply'
     'click .unsubscribe': 'unsubscribe'
 
   initialize: ->
-    @render()
+    @thread = @options.thread
+    @thread.messages.on 'add', @addMessage
     
-    $('#threads li.active').removeClass('active');
-    $("#thread-#{@model.id}").addClass('active');
+    @render()
 
   render: =>
-    @$el.html @template(@model.toJSON())
+    @$el.html @template(@thread.toJSON())
+    
+    $('#threads li.active').removeClass 'active'
+    $("#thread-#{@thread.id}").addClass 'active'
 
   focusReply: ->
     $('#message_body').focus()
     
     false
 
-  reply: ->
+  reply: =>
+    @thread.newMessage $('#message_body').val()
     
     false
 
   unsubscribe: ->
+    @thread.unsubscribe()
     
     false
+
+  addMessage: (message)=>
+    $el = $ JST["templates/messages/item"](message.toJSON())
+    $('#messages').append $el
+    yellowFade $el

@@ -3,7 +3,8 @@ class BBMS.Models.MessageThread extends Backbone.Model
   
   initialize: =>
     @subscribers = []
-    
+    @messages = new BBMS.Collections.Messages
+
   toggleSubscriber: (id)=>
     id = Number(id)
     index = @subscribers.indexOf(id)
@@ -11,6 +12,14 @@ class BBMS.Models.MessageThread extends Backbone.Model
       @subscribers.slice index
     else
       @subscribers.push id
+  
+  newMessage: (body)=>
+    message = new BBMS.Models.Message
+    message.message_thread = @
+    message.save
+      body: body
+    ,
+      success: (model)=> @messages.add message
 
 
 class BBMS.Collections.MessageThreads extends Backbone.Collection

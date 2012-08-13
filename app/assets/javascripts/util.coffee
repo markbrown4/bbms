@@ -3,3 +3,7 @@ window.nl2br = (dataStr) ->
 
 window.br2nl = (dataStr) ->
   dataStr.replace(/(<br ?\/?>)/gi, "\n")
+
+window.yellowFade = ($el)->
+  $el.css backgroundColor: '#FFFFAA'
+  $el.animate backgroundColor: "#FFFFFF"

@@ -2,11 +2,12 @@ class BBMS.Views.Messages.Item extends Backbone.View
   tagName: 'li'
   template: JST["templates/messages/item"]
 
-  initialize: ->
+  initialize: =>
+    @message = @options.message
     @render()
 
   render: =>
-    @$el.html @template(@model.toJSON())
-    @el.id = "message-#{@model.id}"
+    @$el.html @template(@message.toJSON())
+    @el.id = "message-#{@message.id}"
     
     @

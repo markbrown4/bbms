@@ -4,7 +4,6 @@ class Message < ActiveRecord::Base
   has_many :unread_messages
   attr_accessible :body, :user_id
   
-  default_scope :order => 'created_at DESC'
   after_create :add_unreads
   
   private

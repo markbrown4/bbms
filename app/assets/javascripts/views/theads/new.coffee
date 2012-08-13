@@ -5,7 +5,8 @@ class BBMS.Views.Threads.New extends Backbone.View
     'click #subscribers a'  : 'togglePerson'
 
   initialize: ->
-    @model = new BBMS.Models.MessageThread
+    @threads = @options.threads
+    @thread = new BBMS.Models.MessageThread
     @users = new BBMS.Collections.Users
     @users.fetch
       success: @render
@@ -18,17 +19,17 @@ class BBMS.Views.Threads.New extends Backbone.View
   togglePerson: (event)=>
     $li = $(event.target).closest('li').toggleClass('active')
     id = $li[0].id.replace('user-', '')
-    @model.toggleSubscriber id
+    @thread.toggleSubscriber id
     
     false
 
   send: =>
-    @model.save
+    @thread.save
       subject: $('#subject').val()
       body: $('#body').val()
-      subscribers: @model.subscribers
+      subscribers: @thread.subscribers
     ,
-      success: (model)=>
-        @collection.add @model
+      success: (thread)=>
+        @threads.add @thread
 
     false
