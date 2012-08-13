@@ -9,27 +9,25 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
     @layout = new BBMS.Views.Layouts.Messages
       threads: @threads
       el: $('#content')
-      
     @threads.fetch
       success: callback
 
   show: (id) =>
-    @loadLayout =>
-      new BBMS.Views.Threads.Show
+    if @layout
+      @view?.undelegateEvents()
+      @view = new BBMS.Views.Threads.Show
         threads: @threads
         thread: @threads.get(id)
         el: $('#thread')
+    else
+      @init => @show(id)
 
   new: =>
-    @loadLayout =>
-      new BBMS.Views.Threads.New
+    if @layout
+      @view?.undelegateEvents()
+      @view = new BBMS.Views.Threads.New
         threads: @threads
         el: $('#thread')
-
-  loadLayout: (callback)=>
-    if @content
-      @content.undelegateEvents()
-    if @layout
-      @content = callback()
     else
-      @init callback
+      @init => @new()
+      

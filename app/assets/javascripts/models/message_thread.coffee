@@ -12,7 +12,7 @@ class BBMS.Models.MessageThread extends Backbone.Model
       @subscribers.slice index
     else
       @subscribers.push id
-  
+
   newMessage: (body)=>
     message = new BBMS.Models.Message
     message.message_thread = @
@@ -20,7 +20,6 @@ class BBMS.Models.MessageThread extends Backbone.Model
       body: body
     ,
       success: (model)=> @messages.add message
-
 
 class BBMS.Collections.MessageThreads extends Backbone.Collection
   model: BBMS.Models.MessageThread

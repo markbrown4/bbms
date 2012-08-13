@@ -3,7 +3,7 @@
   <li><a class="unsubscribe btn">Unsubscribe</a></li>
 </ul>
 <h2><%= subject %></h2>
-<label>Participants</label>
+<label><%= subscribers.length %> Participants</label>
 <ul id="participants">
 <% _.each(subscribers, function(subscriber) { %>
   <%= JST['templates/users/item'](subscriber) %>

@@ -9,5 +9,3 @@ class BBMS.Views.Messages.Item extends Backbone.View
   render: =>
     @$el.html @template(@message.toJSON())
     @el.id = "message-#{@message.id}"
-    
-    @

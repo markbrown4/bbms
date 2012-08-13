@@ -1,12 +1,12 @@
 
 development:
   adapter: postgresql
-  database: bb_message_development
+  database: bbms_development
 
 test:
   adapter: postgresql
-  database: bb_message_development
+  database: bbms_development
 
 production:
   adapter: postgresql
-  database: bb_message
+  database: bbms_message

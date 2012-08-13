@@ -9,15 +9,21 @@ class BBMS.Views.Layouts.Messages extends Backbone.View
 
   render: =>
     $(@el).html @template(threads: @threads.toJSON())
-    id = @threads.at(0)?.id
-    if id
-      Backbone.history.navigate "messages/#{id}", true
-    @
+    @loadFirst()
 
   addThread: (thread)=>
     el = JST["templates/threads/item"](thread.toJSON())
-    $('#threads').prepend(el)
+    $('#threads').prepend el
     Backbone.history.navigate "messages/#{thread.id}", true
 
   removeThread: (thread)=>
     $("#thread-#{thread.id}").remove()
+    @loadFirst()
+
+  loadFirst: =>
+    id = @threads.at(0)?.id
+    url = "messages"
+    if id
+      url += "/" + id 
+    Backbone.history.navigate url, true
+      

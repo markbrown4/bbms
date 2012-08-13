@@ -13,12 +13,10 @@ class BBMS.Views.Threads.New extends Backbone.View
 
   render: =>
     @$el.html @template(users: @users.toJSON())
-    
-    @
 
   togglePerson: (event)=>
-    $li = $(event.target).closest('li').toggleClass('active')
-    id = $li[0].id.replace('user-', '')
+    $li = $(event.target).closest('li').toggleClass 'active'
+    id = $li[0].id.replace 'user-', ''
     @thread.toggleSubscriber id
     
     false

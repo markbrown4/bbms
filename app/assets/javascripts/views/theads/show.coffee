@@ -28,7 +28,7 @@ class BBMS.Views.Threads.Show extends Backbone.View
     false
 
   unsubscribe: ->
-    @thread.unsubscribe()
+    @thread.destroy()
     
     false
 
@@ -36,3 +36,4 @@ class BBMS.Views.Threads.Show extends Backbone.View
     $el = $ JST["templates/messages/item"](message.toJSON())
     $('#messages').append $el
     yellowFade $el
+

@@ -8,5 +8,3 @@ class BBMS.Views.Users.Item extends Backbone.View
   render: =>
     @$el.html @template(@model.toJSON())
     @el.id = "user-#{@model.id}"
-    
-    @
