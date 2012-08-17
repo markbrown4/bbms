@@ -28,6 +28,7 @@ class BBMS.Views.Threads.New extends Backbone.View
       subscribers: @thread.subscribers
     ,
       success: (thread)=>
+        $('#body').val ''
         @threads.add @thread
 
     false

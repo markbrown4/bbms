@@ -6,6 +6,10 @@ class Message < ActiveRecord::Base
   
   after_create :add_unreads
   
+  def unread_for?(user)
+    unread_messages.find_by_user_id(user.id).present?
+  end
+  
   private
 
   def add_unreads
@@ -13,5 +17,5 @@ class Message < ActiveRecord::Base
       unread_messages.create :user => subscriber
     end
   end
-  
+
 end

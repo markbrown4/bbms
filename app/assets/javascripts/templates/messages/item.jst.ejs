@@ -1,4 +1,4 @@
-<li id="message-<%= id %>">
+<li id="message-<%= id %>"<%= (unread == true) ? ' class="unread"' : '' %>>
   <time datetime="<%= created_at %>"><%= time_ago %></time>
   <a href="/users/<%= id %>">
     <img src="<%= avatar %>">

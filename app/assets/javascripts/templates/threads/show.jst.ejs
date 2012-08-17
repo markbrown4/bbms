@@ -9,11 +9,7 @@
   <%= JST['templates/users/item'](subscriber) %>
 <% }) %>
 </ul>
-<ul id="messages">
-<% _.each(messages, function(message) { %>
-  <%= JST['templates/messages/item'](message) %>
-<% }) %>
-</ul>
+<ul id="messages"></ul>
 <div id="reply">
   <img src="<%= CurrentUser.avatar %>">
   <textarea id="message_body" placeholder="Reply to this discussion"></textarea>

@@ -1,5 +1,6 @@
-<li id="thread-<%= id %>">
+<li id="thread-<%= id %>"<%= (unread_count > 0) ? ' class="unread"' : '' %>>
   <a href="/messages/<%= id %>" data-route>
+    <span class="unread_count"><%= unread_count %></span>
     <img src="<%= avatar %>">
     <h3><%= subject %></h3>
     <time datetime="<%= created_at %>"><%= time_ago %></time>

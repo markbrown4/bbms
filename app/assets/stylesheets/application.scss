@@ -159,6 +159,19 @@ textarea {
     color: #515151;
     font: normal 14px/1.2 Helvetica;
   }
+  .unread_count {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 19px;
+    height: 19px;
+    border-radius: 19px;
+    text-align: center;
+    color: black;
+    font: bold 12px/20px Helvetica;
+    box-shadow: 0 1px 0 white;
+    @include background(linear-gradient(top, rgba(black, .2), rgba(black, 0)));
+  }
 }
 #thread {
   background: white;
@@ -230,6 +243,21 @@ textarea {
   li {
     padding: 18px 18px 18px 78px;
     border-bottom: 1px solid #E7E8E8;
+    position: relative;
+    &.unread {
+      border-left: 1px solid rgba(black, .4);
+      margin-left: -1px;
+      &:before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: -1px;
+        bottom: -1px;
+        width: 3px;
+        background: rgba(#4dd2ff, .8);
+        border-radius: 2px 0 0 2px;
+      }
+    }
   }
   time { float: right }
 }

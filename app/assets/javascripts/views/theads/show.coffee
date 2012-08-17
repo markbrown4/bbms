@@ -7,9 +7,10 @@ class BBMS.Views.Threads.Show extends Backbone.View
 
   initialize: ->
     @thread = @options.thread
+    @thread.messages.on 'reset', @loadMessages
     @thread.messages.on 'add', @addMessage
     
-    @render()
+    @thread.messages.fetch()
 
   render: =>
     @$el.html @template(@thread.toJSON())
@@ -32,8 +33,11 @@ class BBMS.Views.Threads.Show extends Backbone.View
     
     false
 
+  loadMessages: (messages)=>
+    $('#messages').html ''
+    messages.each (message) => @addMessage message
+
   addMessage: (message)=>
     $el = $ JST["templates/messages/item"](message.toJSON())
     $('#messages').append $el
-    yellowFade $el
 
