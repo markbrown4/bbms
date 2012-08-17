@@ -122,6 +122,7 @@ textarea {
   }
   time { @include transition(opacity .2s linear) }
   li {
+    position: relative;
     &:first-child a {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
@@ -135,6 +136,7 @@ textarea {
     &.active {
       h3 { margin-top: 8px }
       time { opacity: 0 }
+      .unread_count { background: none }
       a {
         background: white;
         margin: 10px 0;

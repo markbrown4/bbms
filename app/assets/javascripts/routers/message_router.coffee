@@ -14,7 +14,7 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
       success: callback
 
   show: (id) =>
-    @ensureLayout @init, =>
+    @ensureLayout =>
       @view = new BBMS.Views.Threads.Show
         threads: @threads
         thread: @threads.get(id)
@@ -22,15 +22,17 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
       @view.render()
 
   new: =>
-    @ensureLayout @init, =>
+    @ensureLayout =>
       @view = new BBMS.Views.Threads.New
         threads: @threads
         el: $('#thread')
       @view.render()
 
-  ensureLayout: (layoutInit, callback) =>
+  ensureLayout: (callback) =>
     if @layout
       @view?.undelegateEvents()
       callback()
     else
-      layoutInit(callback)
+      @init => callback()
+    
+    false

@@ -15,5 +15,17 @@ class MessageThread < ActiveRecord::Base
   def subscribe_owner
     users.push(user)
   end
-
+  
+  def unread_count_for_user(user)
+    unread_messages_for(user).length
+  end
+  
+  def read!(user)
+    unread_messages_for(user).delete_all
+  end
+  
+  def unread_messages_for(user)
+    user.unread_messages.where("message_id in (?)", messages)
+  end
+  
 end

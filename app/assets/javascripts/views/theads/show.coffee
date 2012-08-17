@@ -7,14 +7,17 @@ class BBMS.Views.Threads.Show extends Backbone.View
 
   initialize: ->
     @thread = @options.thread
-    @thread.messages.on 'reset', @loadMessages
-    @thread.messages.on 'add', @addMessage
+    @messages = new BBMS.Collections.Messages
+    @messages.thread = @thread
+    @messages.on 'reset', @loadMessages
+    @messages.on 'add', @addMessage
     
-    @thread.messages.fetch()
+    @messages.fetch()
 
   render: =>
     @$el.html @template(@thread.toJSON())
     
+    $('#threads li.active .unread_count').remove()
     $('#threads li.active').removeClass 'active'
     $("#thread-#{@thread.id}").addClass 'active'
 
@@ -24,7 +27,12 @@ class BBMS.Views.Threads.Show extends Backbone.View
     false
 
   reply: =>
-    @thread.newMessage $('#message_body').val()
+    message = new BBMS.Models.Message
+    message.thread = @thread
+    message.save
+      body: $('#message_body').val()
+    ,
+      success: (model)=> @messages.add message
     
     false
 
@@ -34,10 +42,12 @@ class BBMS.Views.Threads.Show extends Backbone.View
     false
 
   loadMessages: (messages)=>
+    console.log 'loadMessages'
     $('#messages').html ''
     messages.each (message) => @addMessage message
 
   addMessage: (message)=>
+    console.log 'addMessage'
     $el = $ JST["templates/messages/item"](message.toJSON())
     $('#messages').append $el
 

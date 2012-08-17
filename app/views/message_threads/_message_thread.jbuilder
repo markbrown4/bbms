@@ -4,3 +4,4 @@ json.time_ago     time_ago message_thread.created_at
 json.subscribers  message_thread.users do |json, user|
   json.partial! "users/user", user: user
 end
+json.unread_count message_thread.unread_count_for_user(current_user)

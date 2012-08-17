@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   
   has_many :subscriptions
   has_many :message_threads, :through => :subscriptions
+  has_many :unread_messages
 end

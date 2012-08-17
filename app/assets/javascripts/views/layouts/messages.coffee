@@ -21,9 +21,11 @@ class BBMS.Views.Layouts.Messages extends Backbone.View
     @loadFirst()
 
   loadFirst: =>
+    
     id = @threads.at(0)?.id
     url = "messages"
     if id
-      url += "/" + id 
+      url += "/" + id
+    
     Backbone.history.navigate url, true
       
