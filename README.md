@@ -18,21 +18,18 @@ Log into http://bbms.dev/ as Azula with azula@gmail.com and "password"
 Other users are Aang, Mako & Toph @gmail.com
 
 ## API
-    GET    /users/:id.json                            users#show
-    GET    /users.json                                users#index
-    GET    /threads/:thread_id/messages.json          messages#index
-    POST   /threads/:thread_id/messages.json          messages#create
-    GET    /threads/:thread_id/messages/:id.json      messages#show
-    PUT    /threads/:thread_id/messages/:id.json      messages#update
-    DELETE /threads/:thread_id/messages/:id.json      messages#destroy
-    GET    /threads/:thread_id/subscriptions.json     subscriptions#index
-    POST   /threads/:thread_id/subscriptions.json     subscriptions#create
-    GET    /threads/:thread_id/subscriptions/:id.json subscriptions#show
-    PUT    /threads/:thread_id/subscriptions/:id.json subscriptions#update
-    DELETE /threads/:thread_id/subscriptions/:id.json subscriptions#destroy
-    GET    /threads.json                              threads#index
-    POST   /threads.json                              threads#create
-    GET    /threads/:id.json                          threads#show
-    PUT    /threads/:id.json                          threads#update
-    DELETE /threads/:id.json                          threads#destroy
+
+    GET    /message_threads                                       message_threads#index
+    POST   /message_threads                                       message_threads#create
+    expects { subject: "<subject>", subscribers: [<user_id's>], body: "<message>" }
+    
+    GET    /message_threads/:id                                   message_threads#show
+    DELETE /message_threads/:id                                   message_threads#destroy
+    
+    GET    /message_threads/:message_thread_id/messages           messages#index
+    POST   /message_threads/:message_thread_id/messages           messages#create
+    expects { body: "<message>" }
+    
+    GET    /message_threads/:message_thread_id/subscriptions      subscriptions#index
+    DELETE /message_threads/:message_thread_id/subscriptions/:id  subscriptions#destroy
 
