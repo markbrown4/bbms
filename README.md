@@ -2,34 +2,29 @@
 We're going to build a messaging system where you can view a list of threads and messages, reply, add people to your message threads and unsubscribe from them.
 
 ## Install
-Install Pow
-
-    curl get.pow.cx | sh
-
 Get the app running
 
     git clone git@github.com:markbrown4/bbms.git
     cd bbms
+    rake db:create
     rake db:setup
-    cd ~/.pow
-    ln -s <path-to-app>
+    rails s
 
-Log into http://bbms.dev/ as Azula with azula@gmail.com and "password"
-Other users are Aang, Mako & Toph @gmail.com
+Log into http://localhost:3000/ as Azula with azula@gmail.com and "password"
 
 ## API
 
-    GET    /message_threads                                       message_threads#index
-    POST   /message_threads                                       message_threads#create
+    GET    /message_threads.json                                       message_threads#index
+    POST   /message_threads.json                                       message_threads#create
     expects { subject: "<subject>", subscribers: [<user_id's>], body: "<message>" }
     
-    GET    /message_threads/:id                                   message_threads#show
-    DELETE /message_threads/:id                                   message_threads#destroy
+    GET    /message_threads/:id.json                                   message_threads#show
+    DELETE /message_threads/:id.json                                   message_threads#destroy
     
-    GET    /message_threads/:message_thread_id/messages           messages#index
-    POST   /message_threads/:message_thread_id/messages           messages#create
+    GET    /message_threads/:message_thread_id/messages.json           messages#index
+    POST   /message_threads/:message_thread_id/messages.json           messages#create
     expects { body: "<message>" }
     
-    GET    /message_threads/:message_thread_id/subscriptions      subscriptions#index
-    DELETE /message_threads/:message_thread_id/subscriptions/:id  subscriptions#destroy
+    GET    /message_threads/:message_thread_id/subscriptions.json      subscriptions#index
+    DELETE /message_threads/:message_thread_id/subscriptions/:id.json  subscriptions#destroy
 
