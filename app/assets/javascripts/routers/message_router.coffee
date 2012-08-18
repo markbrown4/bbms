@@ -9,7 +9,6 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
     @layout = new BBMS.Views.Layouts.Messages
       threads: @threads
       el: $('#content')
-    @layout.render()
     @threads.fetch
       success: callback
 
