@@ -10,7 +10,7 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.BBMS =
+window.App =
   Models: {}
   Collections: {}
   Routers: {}
@@ -25,4 +25,4 @@ window.BBMS =
     
     
 $ ->
-  BBMS.init()
+  App.init()
