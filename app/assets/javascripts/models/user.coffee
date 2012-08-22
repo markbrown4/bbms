@@ -1,2 +1,2 @@
-class BBMS.Collections.Users extends Backbone.Collection
+class App.Collections.Users extends Backbone.Collection
   url: -> "/users"

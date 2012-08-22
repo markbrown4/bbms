@@ -1,4 +1,4 @@
-class BBMS.Views.Threads.Show extends Backbone.View
+class App.Views.Threads.Show extends Backbone.View
   template: JST["templates/threads/show"]
   events:
     'click .focus-reply': 'focusReply'
@@ -7,7 +7,7 @@ class BBMS.Views.Threads.Show extends Backbone.View
 
   initialize: ->
     @thread = @options.thread
-    @messages = new BBMS.Collections.Messages
+    @messages = new App.Collections.Messages
     @messages.thread = @thread
     @messages.on 'reset', @loadMessages
     @messages.on 'add', @addMessage
@@ -27,7 +27,7 @@ class BBMS.Views.Threads.Show extends Backbone.View
     false
 
   reply: =>
-    message = new BBMS.Models.Message
+    message = new App.Models.Message
     message.thread = @thread
     message.save
       body: $('#message_body').val()

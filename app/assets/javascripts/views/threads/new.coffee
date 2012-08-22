@@ -1,4 +1,4 @@
-class BBMS.Views.Threads.New extends Backbone.View
+class App.Views.Threads.New extends Backbone.View
   template: JST["templates/threads/new"]
   events:
     'click .send'           : 'send'
@@ -6,8 +6,8 @@ class BBMS.Views.Threads.New extends Backbone.View
 
   initialize: ->
     @threads = @options.threads
-    @thread = new BBMS.Models.MessageThread
-    @users = new BBMS.Collections.Users
+    @thread = new App.Models.MessageThread
+    @users = new App.Collections.Users
     @users.fetch
       success: @render
 

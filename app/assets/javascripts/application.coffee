@@ -11,7 +11,7 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.BBMS =
+window.App =
   Models: {}
   Collections: {}
   Routers: {}
@@ -23,11 +23,11 @@ window.BBMS =
   }
   
   init: ->
-    new BBMS.Routers.MessagesRouter
+    new App.Routers.MessagesRouter
     Backbone.history.start pushState: true
     
 $ ->
-  BBMS.init()
+  App.init()
 
   $('body').on 'click', 'a[data-route]', ->
     route = $(this).attr('href').substring(1)

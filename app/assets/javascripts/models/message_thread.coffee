@@ -1,4 +1,4 @@
-class BBMS.Models.MessageThread extends Backbone.Model
+class App.Models.MessageThread extends Backbone.Model
   urlRoot: '/message_threads'
   
   initialize: =>
@@ -12,6 +12,6 @@ class BBMS.Models.MessageThread extends Backbone.Model
     else
       @subscribers.push id
 
-class BBMS.Collections.MessageThreads extends Backbone.Collection
-  model: BBMS.Models.MessageThread
+class App.Collections.MessageThreads extends Backbone.Collection
+  model: App.Models.MessageThread
   url: '/message_threads'

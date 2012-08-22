@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BBMS</title>
+  <title>bbms</title>
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="header">
   <div class="inner">
-    <h1>BBMS</h1>
+    <h1>bbms</h1>
     <% if user_signed_in? %>
       <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
       <%= image_tag image_path(current_user.avatar ) %> Oh hai <%= current_user.name %>
@@ -24,8 +24,9 @@
 <%= javascript_include_tag "application" %>
 <% if user_signed_in? %>
 <script>
-CurrentUser = {
+window.CurrentUser = {
   id: <%= current_user.id %>,
+  name: "<%= current_user.name %>",
   avatar: "<%= image_path current_user.avatar %>"
 }
 </script>

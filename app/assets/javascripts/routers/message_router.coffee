@@ -1,12 +1,12 @@
-class BBMS.Routers.MessagesRouter extends Backbone.Router
+class App.Routers.MessagesRouter extends Backbone.Router
   routes:
     "messages"      : "init"
     "messages/new"  : "new"
     "messages/:id"  : "show"
 
   init: (callback)=>
-    @threads = new BBMS.Collections.MessageThreads
-    @layout = new BBMS.Views.Layouts.Messages
+    @threads = new App.Collections.MessageThreads
+    @layout = new App.Views.Layouts.Messages
       threads: @threads
       el: $('#content')
     @threads.fetch
@@ -14,7 +14,7 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
 
   show: (id) =>
     @ensureLayout =>
-      @view = new BBMS.Views.Threads.Show
+      @view = new App.Views.Threads.Show
         threads: @threads
         thread: @threads.get(id)
         el: $('#thread')
@@ -22,7 +22,7 @@ class BBMS.Routers.MessagesRouter extends Backbone.Router
 
   new: =>
     @ensureLayout =>
-      @view = new BBMS.Views.Threads.New
+      @view = new App.Views.Threads.New
         threads: @threads
         el: $('#thread')
       @view.render()

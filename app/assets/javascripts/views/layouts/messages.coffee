@@ -1,4 +1,4 @@
-class BBMS.Views.Layouts.Messages extends Backbone.View
+class App.Views.Layouts.Messages extends Backbone.View
   template: JST["templates/layouts/messages"]
 
   initialize: =>
